@@ -101,6 +101,6 @@ var wallet = new Wallet(Words, Password);
 var account = wallet.GetAccount(0);
 var toAddress = "0x13f022d72158410433cbd66f5dd8bf6d2d129924";
 var web3 = new Web3(account);
-var transaction = await web3.TransactionManager.SendTransactionAsync(account.Address, toAddress, new Nethereum.Hex.HexTypes.HexBigInteger(1));
+var transaction = await web3.Eth.GetEtherTransferService()
+                .TransferEtherAndWaitForReceiptAsync(toAddress, 1.11m, 2);
 ```
-w
